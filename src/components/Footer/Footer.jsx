@@ -4,8 +4,11 @@ import youtube_icon from '../../assets/youtube_icon.png'
 import twitter_icon from '../../assets/twitter_icon.png'
 import instagram_icon from '../../assets/instagram_icon.png'
 import facebook_icon from '../../assets/facebook_icon.png'
+import { useNavigate } from 'react-router-dom'
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <div className='footer'>
       <div className="footer-icons">
@@ -16,7 +19,7 @@ const Footer = () => {
       </div>
       <ul>
         <li>Audio Description</li>
-        <li>Help Centre</li>
+        <li onClick={() => navigate('/help')} style={{cursor:'pointer', textDecoration:'underline'}}>Help Center</li>
         <li>Gift Cards</li>
         <li>Media Centre</li>
         <li>Investor Relations</li>

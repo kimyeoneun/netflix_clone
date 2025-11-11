@@ -11,7 +11,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    navigate("/");
+    navigate("/home");
   };
 
   return (
