@@ -1,19 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import logo from "../../assets/logo.png";
 
-const Login = ({ onLogin }) => {
+const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // 여기서 진짜 로그인 검증 안 하고
-    // 그냥 onLogin만 호출해서 isLoggedIn = true로 바꾸는 거!
-    if (onLogin) {
-      onLogin();
-    }
+    navigate("/");
   };
 
   return (

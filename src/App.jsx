@@ -1,33 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Home from './pages/Home/Home'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login/Login'
 import Player from './pages/Player/Player'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
-  // 가짜 로그인 상태
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-
-  const handleFakeLogin = () => {
-    // 아무 값이나 입력하고 로그인 누르면 true로 바뀌게
-    setIsLoggedIn(true)
-  }
-
   return (
     <div>
-      <ToastContainer theme='dark' />
-      {isLoggedIn ? (
-        // 로그인 됐으면 홈/플레이어 라우트 보이게
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/player/:id' element={<Player />} />
-        </Routes>
-      ) : (
-        // 아직 로그인 안 됐으면 무조건 로그인 화면
-        <Login onLogin={handleFakeLogin} />
-      )}
+      <ToastContainer theme="dark" />
+      <Routes>
+        {/* 기본은 로그인 페이지 */}
+        <Route path="/login" element={<Login />} />
+        {/* 로그인 버튼 누르면 여기로 이동 */}
+        <Route path="/" element={<Home />} />
+        <Route path="/player/:id" element={<Player />} />
+        {/* 이상한 주소로 들어오면 /login 으로 보내기 */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
     </div>
   )
 }
