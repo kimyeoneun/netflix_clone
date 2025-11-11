@@ -5,7 +5,7 @@ import search_icon from "../../assets/search_icon.svg";
 import bell_icon from "../../assets/bell_icon.svg";
 import profile_img from "../../assets/profile_img.png";
 import caret_icon from "../../assets/caret_icon.svg";
-import { logout } from "../../firebase";
+// ❌ firebase import 제거
 import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
@@ -53,7 +53,8 @@ const NavBar = () => {
           <img src={profile_img} alt="profile" className="profile" />
           <img src={caret_icon} alt="caret" />
           <div className="dropdown">
-            <p onClick={() => logout()}>Sign Out of Netflix</p>
+            {/* 🔹 logout 기능 삭제하고 단순 텍스트로 변경 */}
+            <p>Sign Out of Netflix</p>
           </div>
         </div>
       </div>
